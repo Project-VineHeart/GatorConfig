@@ -1,0 +1,9 @@
+{
+    "venvPath": "/home/krw/.pyenv/versions",
+    "venv": "data-gator-env",
+    "pythonVersion": "3.13",
+    "pythonPlatform": "Linux",
+    "exclude": [
+        "**/__pycache__"
+    ]
+}
