@@ -1,3 +1,4 @@
+"""Routes for the Flask application."""
 from flask import render_template, request, send_file
 from app import app
 
@@ -7,6 +8,11 @@ import os
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    """
+    Render the index page and handle form submission.
+    If the request method is POST, save the configuration to a file
+    and return it as a downloadable file.
+    """
     if request.method == 'POST':
         config = {
             'analog_ports': {
@@ -21,5 +27,6 @@ def index():
 
         with open('/tmp/config.json', 'w') as f:
             json.dump(config, f)
+        
         return send_file('/tmp/config.json', as_attachment=True)
     return render_template('index.html')
